@@ -13,10 +13,6 @@ jobs:
         with:
           build: npm run build
           start: npm start
-        env:
-          # pass the Cypress Cloud records key as an environment variable
-          CYPRESS_USERNAME: ${{ secrets.MY_EMAIL }}    
-          CYPRESS_PASSWORD: ${{ secrets.MY_PASSWORD }}
 
 
 # name: main
