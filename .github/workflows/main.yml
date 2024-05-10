@@ -1,50 +1,26 @@
-name: main
-on: push
+name: Run Cypress tests
+
+on:
+  push:
+    branches:
+      - main  # Adjust the branch name as needed
+  pull_request:
+    branches:
+      - main  # Adjust the branch name as needed
+
 jobs:
-  cypress-run:
-    name: Cypress run
-    runs-on: ubuntu-22.04
+  cypress:
+    runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-      - name: Cypress run
-        uses: cypress-io/github-action@v6
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run Cypress tests
+        uses: cypress-io/github-action@v2
         with:
-          build: npm run build
-          start: npm start
-        env:
-          # pass the Cypress Cloud records key as an environment variable
-          CYPRESS_USERNAME: ${{ secrets.MY_EMAIL }}    
-          CYPRESS_PASSWORD: ${{ secrets.MY_PASSWORD }}
-
-
-# name: main
-# on: push
-# jobs:
-#   cypress-run:
-#     name: Cypress run
-#     runs-on: ubuntu-22.04
-#     steps:
-#       - name: Checkout
-#         uses: actions/checkout@v4
-
-#       - name: Set up Node.js
-#         uses: actions/setup-node@v3
-#         with:
-#           node-version: '14'
-
-#       - name: Install dependencies
-#         run: npm install
-
-#       - name: Cypress run
-#         uses: cypress-io/github-action@v6
-#         with:
-#           build: npm run build
-#           start: npm start
-#         env:
-#           CYPRESS_USERNAME: ${{ secrets.MY_EMAIL }}
-#           CYPRESS_PASSWORD: ${{ secrets.MY_PASSWORD }}
-
-
-
+          start: npm start  # Adjust the command to start your app
+          config-file: 'cypress.config.js'

@@ -111,10 +111,10 @@ Cypress.Commands.add('login', () => {
     cy.url().should('include', 'https://www.trendyol.com/giris');
     cy.get('.q-primary > span').should('contain', 'Giriş Yap').and('be.visible');
 
-    const fakeEmail = Cypress.env('MY_EMAIL');
-    const fakePassword = Cypress.env('MY_PASSWORD');
-    // const fakeEmail = 'syzeynep14@gmail.com';
-    // const fakePassword = 'sy123zey..';
+    // const fakeEmail = Cypress.env('MY_EMAIL');
+    // const fakePassword = Cypress.env('MY_PASSWORD');
+    const fakeEmail = 'syzeynep14@gmail.com';
+    const fakePassword = '00109543Aapx';
 
     cy.get('#login-email').type(fakeEmail);
     cy.get('#login-password-input').type(fakePassword);
