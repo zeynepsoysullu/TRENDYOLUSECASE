@@ -13,7 +13,7 @@ Cypress.Commands.add('visitTrendyol', () => {
 
 })
 Cypress.Commands.add('acceptCookies', () => {
-    cy.get('#onetrust-accept-btn-handler').click(); // Çerezleri kabul etme düğmesine tıkla (varsa)
+    cy.get('#onetrust-accept-btn-handler').click({ force: true }); // Çerezleri kabul etme düğmesine tıkla (varsa)
     cy.wait(2000);
 
 })
