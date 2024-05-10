@@ -131,7 +131,7 @@ Cypress.Commands.add('couponValue', () => {
 
 })
 Cypress.Commands.add('ınvalidCouponCode', () => {
-    cy.get('.coupon-error-description').should('contain', 'Üzgünüz böyle bir kod yo');
+    cy.get('.coupon-error-description').should('contain', 'Üzgünüz böyle bir kod yok');
 })
 
 // ***********************************************
