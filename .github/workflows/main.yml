@@ -3,10 +3,10 @@ name: Run Cypress tests
 on:
   push:
     branches:
-      - main
+      - main  # Adjust the branch name as needed
   pull_request:
     branches:
-      - main
+      - main  # Adjust the branch name as needed
 
 jobs:
   cypress:
@@ -19,10 +19,8 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      # Debug modunu etkinleştirmek için koşul ekleniyor
       - name: Run Cypress tests
-        if: github.event_name == 'pull_request' && github.actor == 'myusername'
         uses: cypress-io/github-action@v2
         with:
-          start: npm start
+          start: npm start  # Adjust the command to start your app
           config-file: 'cypress.config.js'
