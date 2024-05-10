@@ -114,7 +114,7 @@ Cypress.Commands.add('login', () => {
     // const fakeEmail = Cypress.env('MY_EMAIL');
     // const fakePassword = Cypress.env('MY_PASSWORD');
     const fakeEmail = 'syzeynep14@gmail.com';
-    const fakePassword = 'sy1123..';
+    const fakePassword = 'sy1123...';
 
     cy.get('#login-email').type(fakeEmail);
     cy.get('#login-password-input').type(fakePassword);
