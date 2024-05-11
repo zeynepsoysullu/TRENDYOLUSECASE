@@ -48,6 +48,7 @@ Cypress.Commands.add('selectCategory', () => {
     });
 })
 Cypress.Commands.add('selectCategoryElectronic', () => {
+    cy.wait(10000);
     const categoryNumber = '.main-nav > .tab-link > .category-header'; // ana kategoriler
     const categoryContainer = '.sub-nav > .sub-nav-center'; // açılan pencere
     const subCategory = '.category-box > .sub-category-header'; // açılan penceredeki alt başlıklar
