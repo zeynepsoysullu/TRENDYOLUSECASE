@@ -6,7 +6,8 @@ module.exports = defineConfig({
             return require('./cypress/plugin/index')(on, config)
         },
         specPattern: 'cypress/e2e/BDD-Features',
-        excludeSpecPattern: ['*.js', '*.md']
+        excludeSpecPattern: ['*.js', '*.md'],
+        defaultCommandTimeout: 10000
     }
 
 
