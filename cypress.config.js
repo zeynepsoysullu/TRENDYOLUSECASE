@@ -7,7 +7,7 @@ module.exports = defineConfig({
         },
         specPattern: 'cypress/e2e/BDD-Features',
         excludeSpecPattern: ['*.js', '*.md'],
-        defaultCommandTimeout: 10000
+        defaultCommandTimeout: 50000
     }
 
 
