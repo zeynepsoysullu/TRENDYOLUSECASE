@@ -20,6 +20,7 @@ Cypress.Commands.add('acceptCookies', () => {
 
 Cypress.Commands.add('selectCategory', () => {
     // Kategori seçimini gerçekleştirir
+    cy.wait(2000);
     const categoryNumber = '.main-nav > .tab-link > .category-header'; // ana kategoriler
     const categoryContainer = '.sub-nav > .sub-nav-center'; // açılan pencere
     const subCategory = '.category-box > .sub-category-header'; // açılan penceredeki alt başlıklar
