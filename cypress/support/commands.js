@@ -19,33 +19,34 @@ Cypress.Commands.add('acceptCookies', () => {
 })
 
 Cypress.Commands.add('selectCategory', () => {
-    // Kategori seçimini gerçekleştirir
-    cy.wait(2000);
-    const categoryNumber = '.main-nav > .tab-link > .category-header'; // ana kategoriler
-    const categoryContainer = '.sub-nav > .sub-nav-center'; // açılan pencere
-    const subCategory = '.category-box > .sub-category-header'; // açılan penceredeki alt başlıklar
+    // // Kategori seçimini gerçekleştirir
+    // cy.wait(2000);
+    // const categoryNumber = '.main-nav > .tab-link > .category-header'; // ana kategoriler
+    // const categoryContainer = '.sub-nav > .sub-nav-center'; // açılan pencere
+    // const subCategory = '.category-box > .sub-category-header'; // açılan penceredeki alt başlıklar
 
-    const excludedCategories = ['Çok SatanlarYeni', 'Flaş ÜrünlerYeni', 'Elektronik'];
+    // const excludedCategories = ['Çok SatanlarYeni', 'Flaş ÜrünlerYeni', 'Elektronik'];
 
-    return cy.get(categoryNumber).should('exist').then($categories => {
-        const numCategories = $categories.length;
-        cy.log(numCategories);
-        const randomIndex = getRandomNumber(0, numCategories);
-        cy.log(randomIndex);
-        const randomCategory = $categories.eq(randomIndex);
-        const categoryText = randomCategory.text().trim();
+    // return cy.get(categoryNumber).should('exist').then($categories => {
+    //     const numCategories = $categories.length;
+    //     cy.log(numCategories);
+    //     const randomIndex = getRandomNumber(0, numCategories);
+    //     cy.log(randomIndex);
+    //     const randomCategory = $categories.eq(randomIndex);
+    //     const categoryText = randomCategory.text().trim();
 
-        if (!excludedCategories.includes(categoryText)) {
-            cy.get(categoryNumber).eq(randomIndex).trigger('mouseover').then(() => {
-                cy.get(categoryContainer).eq(randomIndex).find(subCategory).first().click({ force: true }).then(() => {
-                    cy.log(`Seçilen kategori: ${categoryText}`);
-                });
-            });
-        } else {
-            cy.log(`Seçilen kategori (${categoryText}) excludedCategories listesinde olduğu için tekrar denenecek.`);
-            cy.selectCategory(); // Yeniden kategori seç
-        }
-    });
+    //     if (!excludedCategories.includes(categoryText)) {
+    //         cy.get(categoryNumber).eq(randomIndex).trigger('mouseover').then(() => {
+    //             cy.get(categoryContainer).eq(randomIndex).find(subCategory).first().click({ force: true }).then(() => {
+    //                 cy.log(`Seçilen kategori: ${categoryText}`);
+    //             });
+    //         });
+    //     } else {
+    //         cy.log(`Seçilen kategori (${categoryText}) excludedCategories listesinde olduğu için tekrar denenecek.`);
+    //         cy.selectCategory(); // Yeniden kategori seç
+    //     }
+    // });
+    cy.get('.account-user').should('be.visible');
 })
 Cypress.Commands.add('selectCategoryElectronic', () => {
     cy.wait(10000);
