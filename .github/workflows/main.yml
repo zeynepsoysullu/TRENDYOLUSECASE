@@ -1,32 +1,50 @@
-name: Run Cypress tests
+# name: Run Cypress tests
 
-on:
-  push:
-    branches:
-      - main  # Adjust the branch name as needed
-  pull_request:
-    branches:
-      - main  # Adjust the branch name as needed
+# on:
+#   push:
+#     branches:
+#       - main  # Adjust the branch name as needed
+#   pull_request:
+#     branches:
+#       - main  # Adjust the branch name as needed
+
+# jobs:
+#   cypress:
+#     runs-on: windows-latest
+
+#     steps:
+#       - name: Checkout code
+#         uses: actions/checkout@v2
+
+#       - name: Install Node.js
+#         uses: actions/setup-node@v2
+#         with:
+#           node-version: '20.13.1'
+
+#       - name: Install dependencies
+#         run: npm install
+
+#       - name: Run Cypress tests
+#         #uses: cypress-io/github-action@v2
+#         run: npx cypress run
+#         # with:
+#         #   start: npm start  # Adjust the command to start your app
+#         #   config-file: 'cypress.config.js'
+
+name: Cypress Tests
+
+on: push
 
 jobs:
-  cypress:
-    runs-on: windows-latest
-
+  cypress-run:
+    runs-on: ubuntu-22.04
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Install Node.js
-        uses: actions/setup-node@v2
+      - name: Checkout
+        uses: actions/checkout@v4
+      # Install npm dependencies, cache them correctly
+      # and run all Cypress tests
+      - name: Cypress run
+        uses: cypress-io/github-action@v6
         with:
-          node-version: '20.13.1'
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Run Cypress tests
-        #uses: cypress-io/github-action@v2
-        run: npx cypress run
-        # with:
-        #   start: npm start  # Adjust the command to start your app
-        #   config-file: 'cypress.config.js'
+          build: npm run build
+          start: npm start
