@@ -22,6 +22,6 @@ jobs:
       - name: Run Cypress tests
         #uses: cypress-io/github-action@v2
         run: npx cypress run
-        with:
-          start: npm start  # Adjust the command to start your app
-          config-file: 'cypress.config.js'
+        # with:
+        #   start: npm start  # Adjust the command to start your app
+        #   config-file: 'cypress.config.js'
