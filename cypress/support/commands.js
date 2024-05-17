@@ -46,26 +46,7 @@ Cypress.Commands.add('selectCategory', () => {
     //         cy.selectCategory(); // Yeniden kategori seç
     //     }
     // });
-    cy.wait(10000);
-    const categoryNumber = '.main-nav > .tab-link > .category-header'; // ana kategoriler
-    const categoryContainer = '.sub-nav > .sub-nav-center'; // açılan pencere
-    const subCategory = '.category-box > .sub-category-header'; // açılan penceredeki alt başlıklar
-    cy.wait(2000);
-    cy.get('#container').then(($body) => //arrow function 
-        {
-            if ($body.find(".onboarding-wrapper").length > 0 || $body.find(".campaign-pointer").length > 0) {
-                cy.get('.shadow').click();
-            }
-            const index = 7;
-            // Elektronik kategorisinin üzerine gel
-            cy.get(categoryNumber).eq(index).trigger('mouseover', { force: true }).then(() => {
-                // Elektronik kategorisinin alt kategorilerinden birine tıkla
-                cy.get(categoryContainer).eq(index).find(subCategory).first().click({ force: true });
-            });
-        })
-
     cy.get('.account-user').should('be.visible');
-
 })
 Cypress.Commands.add('selectCategoryElectronic', () => {
     cy.wait(10000);
