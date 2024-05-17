@@ -1,38 +1,35 @@
-# name: Run Cypress tests
+name: Run Cypress tests
 
-# on:
-#   push:
-#     branches:
-#       - main  # Adjust the branch name as needed
-#   pull_request:
-#     branches:
-#       - main  # Adjust the branch name as needed
+on:
+  push:
+    branches:
+      - main  # Adjust the branch name as needed
+  pull_request:
+    branches:
+      - main  # Adjust the branch name as needed
 
-# jobs:
-#   cypress:
-#     runs-on: windows-latest
+jobs:
+  cypress:
+    runs-on: windows-latest
 
-#     steps:
-#       - name: Checkout code
-#         uses: actions/checkout@v2
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-#       - name: Install Node.js
-#         uses: actions/setup-node@v2
-#         with:
-#           node-version: '20.13.1'
+      - name: Install Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '20.13.1'
 
-#       - name: Install dependencies
-#         run: npm install
+      - name: Install dependencies
+        run: npm install
 
-#       - name: Run Cypress tests
-#         #uses: cypress-io/github-action@v2
-#         run: npx cypress run
-#         # with:
-#         #   start: npm start  # Adjust the command to start your app
-#         #   config-file: 'cypress.config.js'
-
-
-
+      - name: Run Cypress tests
+        #uses: cypress-io/github-action@v2
+        run: npx cypress run
+        # with:
+        #   start: npm start  # Adjust the command to start your app
+        #   config-file: 'cypress.config.js'
 
 # name: Cypress Tests
 
@@ -51,34 +48,3 @@
 #         with:
 #           build: npm run build
 #           start: npm start
-
-
-
-name: Run Cypress tests
-
-on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
-
-jobs:
-  cypress:
-    runs-on: windows-latest
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Install Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '14.x'
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Run Cypress tests
-        run: npx cypress run --config-file 'cypress/support/command.js'
