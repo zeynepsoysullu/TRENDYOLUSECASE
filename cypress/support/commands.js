@@ -46,7 +46,10 @@ Cypress.Commands.add('selectCategory', () => {
     //         cy.selectCategory(); // Yeniden kategori seç
     //     }
     // });
+    cy.wait(10000);
+    cy.get('.modal-close').click();
     cy.get('.account-user').should('be.visible');
+
 })
 Cypress.Commands.add('selectCategoryElectronic', () => {
     cy.wait(10000);
